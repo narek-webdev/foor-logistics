@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Foor Logistics is four friends who started on the dispatch side ten years ago and grew into freight brokers. We still work the same way we did then: as one desk. Everyone owns their piece of the job, nobody hands off a problem and hopes it disappears, and whoever you reach gives you the same answer.",
+    "Ten years in this business teaches you that capacity is easy to find and reliability is not. That's the part we're built around."
+  ],
+  "services": [
+    [
+      "Truckload",
+      "Dry van, box truck, sprinter van, flatbed, step deck, hotshot, and Conestoga. One skid or a full 53', we source the equipment that fits your load instead of forcing your load onto the equipment we happen to have."
+    ],
+    [
+      "LTL",
+      "We hold contracts with every major LTL carrier and quote at Tier 1 pricing. LTL is also where most shipments go sideways: reclasses, reweighs, missed pickups, damage. So we do more than tender and wait. We chase pickups until they happen, catch problems before they show up on your invoice, and when a claim comes up we file it and push it. Our side of the table is your side."
+    ],
+    [
+      "Heavy Haul & Specialized",
+      "Machinery, construction equipment, oversized and overweight freight. Multi-axle RGNs, lowboys, and step decks, with routing and permits handled before the truck rolls. Pole cars, escorts, and route surveys when the load requires them. We know how this freight has to be secured and which drivers can actually secure it. Additional insurance when the value calls for it, no argument."
+    ],
+    [
+      "Drayage & Intermodal",
+      "Port-to-door service at all major US ports, intermodal rail for the long haul, and warehousing when product needs to sit somewhere in between. Container, chassis, appointment, paperwork: ours to manage, not yours."
+    ]
+  ],
+  "intro": "We operate as an independent agency of Margin Freight, which puts one of the strongest tech stacks in brokerage behind every load we move.",
+  "features": [
+    [
+      "Customer portal.",
+      "Your quotes, active shipments, documents, and invoices in one place, whenever you want to look."
+    ],
+    [
+      "Faster sourcing.",
+      "Our AI tools help us check thousands of carrier options down to the right few in minutes rather than an afternoon of phone calls. The choice is still always made by us."
+    ],
+    [
+      "Live tracking.",
+      "Continuous monitoring with ETAs recalculated in real time against every pickup and delivery."
+    ]
+  ],
+  "why": [
+    "Because we genuinely like this work. We like moving trucks, and we've spent ten years building the carrier network that makes it possible.",
+    "What we're really selling is a quiet inbox. Hand us a shipment and you should be able to stop thinking about it. And if something does go wrong on the road, you'll hear it from us first, with the fix already in motion."
+  ]
+}

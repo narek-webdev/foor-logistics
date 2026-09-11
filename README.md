@@ -1,37 +1,25 @@
-# Northline — US trucking website concepts
+# Logistics
 
-Nine responsive, English-language concepts made with plain HTML, CSS and JavaScript. No build process or framework.
+The original website designs, now adapted to FOOR Logistics branding and complete copy, are in [`verion-1/`](verion-1/).
 
-## View
+Open [`verion-1/index.html`](verion-1/index.html), or run `python3 -m http.server 8080` from this folder and visit http://localhost:8080/verion-1/.
 
-Open `index.html` directly, or run `python3 -m http.server 8080` from this folder and visit:
+See [`verion-1/README.md`](verion-1/README.md) for the original design documentation.
 
-- http://localhost:8080/?design=1 — **Blue Horizon:** light corporate layout, split hero, cobalt accents.
-- http://localhost:8080/?design=2 — **Night Shift:** dark navy, immersive photography, shipment planning card.
-- http://localhost:8080/?design=3 — **Open Road:** editorial heading, wide photography, horizontal service rows.
-- http://localhost:8080/?design=4 — **Freight Journal:** newsprint scale, condensed type, off-white paper stock.
-- http://localhost:8080/?design=5 — **Dispatch:** product-style panels, a quote form in the hero, rounded cards.
-- http://localhost:8080/?design=6 — **Long Haul:** dark full-bleed hero, fixed left rail, tabbed service panel.
-- http://localhost:8080/?design=7 — **Terminal:** monospaced freight board, hard rules, dark utility palette, no hero photography.
-- http://localhost:8080/?design=8 — **Aurora:** gradient light, frosted glass panels, centred hero with an inline quote bar.
-- http://localhost:8080/?design=9 — **Blueprint:** graph-paper ground, dimensioned line drawings in place of photography.
+## New implementations based on `output/design-concepts`
 
-The top design switcher works in both file and HTTP modes. `freight-journal.html`, `dispatch.html` and `long-haul.html` are pre-rendered copies of designs 4, 5 and 6 for sharing a single concept on its own; they read their design from `data-theme` on `<body>`. They are static snapshots — edits to `index.html` or `concepts.js` do not reach them, so regenerate or delete them once a direction is chosen.
+Open [`index.html`](index.html) directly in a browser to choose a version. No installation, build step, internet connection, or server is required.
 
-Every concept includes mobile navigation, service detail dialogs, selectable sample freight lanes, FAQ accordions, and a validated quote form with a downloadable text request. Design 5 and design 8 add a hero quick-quote that carries its values into the full form; design 6 adds a tabbed service panel; design 7 turns sample lanes into a board where a row prefills the request. Any element with `data-quote` can prefill the form through `data-quote-service`, `data-quote-origin` and `data-quote-destination`. Native dialogs support Escape and focus trapping. Reduced motion and visible keyboard focus are supported.
+- [`version-1/index.html`](version-1/index.html) — Clear & Confident: white and pale blue, editorial sections, a photographic hero.
+- [`version-2/index.html`](version-2/index.html) — Bold & Reliable: cinematic navy hero, numbered service grid, full-width company story.
+- [`version-3/index.html`](version-3/index.html) — Connected & Smart: SVG route map, modular service cards, interactive illustrative portal.
 
-`previews/` holds full-page screenshots of each design at 1440px and 390px wide.
+Each version contains its own `index.html`, `styles.css`, `app.js`, and `assets/` directory. Each folder works independently. The sites use the full viewport width without concept labels or gallery links in their headers. Subtle entrance, scroll, and hover animations respect reduced-motion preferences. The original-design collection in `verion-1/` remains separate and now uses the same FOOR branding and complete copy.
 
-## Before launch
+All versions include mobile navigation, section links, service-specific quote prefilling, accessible form labels, browser validation, keyboard focus states, and reduced-motion support. The quote form downloads a local `.txt` request; it does not submit anything to a server or store personal information. Connect a backend before enabling real submissions. The portal in version 3 is explicitly illustrative, with working Shipments, Tracking, and Documents preview buttons.
 
-Northline is a placeholder brand. Confirm the company name, approved service copy, operating coverage, real contact details, and any required company identifiers. Routes are illustrative; no fleet size, safety credentials, customer endorsements, or delivery metrics are invented.
+Visuals are adaptations of the reference compositions, not pixel-perfect reproductions. Truck and warehouse photos were created with the built-in image generation tool. The US route map, logo approximation, and service icons are editable SVG. Asset prompts and provenance are in [`output/site-previews/asset-prompts.md`](output/site-previews/asset-prompts.md).
 
-The form runs locally. It does not submit, book freight, or provide prices. Connect an actual form endpoint or CRM and add appropriate privacy information before enabling submission. This prototype does not store contact data in localStorage or send it to a server. Remove the concept bar and select the final design before launch.
+Chrome verification covered all three versions at 1440, 390, and 320 px widths, image loading, absence of horizontal overflow and runtime errors, mobile menus, service quote links, required fields, invalid email rejection, quote file content, and portal previews. Desktop/mobile captures and the recorded checks are in [`output/site-previews/`](output/site-previews/).
 
-## Assets and references
-
-- Truck image: https://www.pexels.com/photo/trucks-on-the-road-2199293/ (local file `assets/american-truck.jpg`). Review stock licensing for final publication.
-- Fonts: DM Sans, Manrope, Barlow Condensed, IBM Plex Mono, Plus Jakarta Sans and Space Grotesk via Google Fonts, with system fallbacks. All core functionality and photography work without a font connection.
-- Content structure references: https://www.jbhunt.com/shippers/truckload and https://schneider.com/freight-shipping-solutions/dedicated . Original visual designs; no affiliation.
-
-Files: `index.html` (semantic markup), `styles.css` (shared and concept 1–3 styles), `concepts.css` / `concepts.js` (concepts 4–6), `concepts-b.css` / `concepts-b.js` (concepts 7–9), `app.js` (interactions), `assets/`, `previews/`.
+The three current versions include the complete supplied Website info copy, ordered as Our Principle, Who we are, Truckload services, LTL services, Drayage/Intermodal, Why choose us, and Empowered by AI, followed by the quote form. No supplied paragraphs are shortened. Equipment text is under Truckload, LTL carrier text under LTL, machinery text under the Heavy Haul & Specialized subsection of Truckload services, and port text under Drayage & Intermodal. The accidental spacing inside “source” was corrected. The complete text is also recorded in `output/site-previews/website-copy.json`.
