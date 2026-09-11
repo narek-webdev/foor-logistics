@@ -1,0 +1,23 @@
+{
+  "name": "FOOR Logistics",
+  "short_name": "FOOR",
+  "description": "U.S. freight brokerage — truckload, heavy haul, LTL and drayage/intermodal.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#071c38",
+  "icons": [
+    {
+      "src": "/assets/foor-logo.png",
+      "sizes": "816x816",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
