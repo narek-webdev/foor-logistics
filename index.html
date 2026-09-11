@@ -62,8 +62,8 @@
       content="A FOOR Logistics freight truck on the open road"
     />
 
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="assets/foor-logo.png" />
+    <link rel="icon" href="assets/favicon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -221,10 +221,10 @@
           Menu <span aria-hidden="true">☰</span>
         </button>
         <nav id="navigation" aria-label="Main navigation">
-          <a href="#truckload">Truckload</a
-          ><a href="#ltl">LTL</a
+          <a href="#truckload">Truckload</a><a href="#ltl">LTL</a
           ><a href="#drayage">Drayage/Intermodal</a
           ><a href="#why">Why choose us</a><a href="#technology">Technology</a
+          ><a href="#quote" data-scroll>Contact us</a
           ><a class="button" href="#quote">Request Quote</a>
         </nav>
       </header>
@@ -271,7 +271,6 @@
               decoding="async"
               alt="FOOR Logistics operator reviewing shipment details on a tablet at a freight warehouse"
             />
-            <figcaption>PEOPLE KEEP FREIGHT MOVING.</figcaption>
           </figure>
         </section>
         <section
@@ -513,14 +512,51 @@
         >
           <div class="quote-copy">
             <h2 id="quote-section-title">Request Quote</h2>
-            <p>
+            <p style="margin-top: 20px">
               Tell us about your shipment and we'll get back to you with options
               as soon as possible.
             </p>
+            <button class="button quote-open" type="button" data-quote>
+              Request Quote
+            </button>
           </div>
-          <button class="button quote-open" type="button" data-quote>
-            Request Quote
-          </button>
+          <div class="quote-contacts">
+            <h3 class="contacts-title">Contact us</h3>
+            <ul class="contact-list">
+              <li class="contact">
+                <span class="contact-name">Sam Karakyan</span
+                ><a class="contact-phone" href="tel:+12103054929"
+                  >(210) 305-4929</a
+                ><a class="contact-email" href="mailto:sam@foorlogistics.com"
+                  >sam@foorlogistics.com</a
+                >
+              </li>
+              <li class="contact">
+                <span class="contact-name">Ash Avagyan</span
+                ><a class="contact-phone" href="tel:+14242131169"
+                  >(424) 213-1169</a
+                ><a class="contact-email" href="mailto:ash@foorlogistics.com"
+                  >ash@foorlogistics.com</a
+                >
+              </li>
+              <li class="contact">
+                <span class="contact-name">Dave Gubryan</span
+                ><a class="contact-phone" href="tel:+12107567521"
+                  >(210) 756-7521</a
+                ><a class="contact-email" href="mailto:dave@foorlogistics.com"
+                  >dave@foorlogistics.com</a
+                >
+              </li>
+              <li class="contact">
+                <span class="contact-name">Arthur Parstone</span
+                ><a class="contact-phone" href="tel:+12105128202"
+                  >(210) 512-8202</a
+                ><a class="contact-email" href="mailto:arthur@foorlogistics.com"
+                  >arthur@foorlogistics.com</a
+                >
+              </li>
+            </ul>
+          </div>
         </section>
       </main>
       <footer>
@@ -539,11 +575,10 @@
               alt="" /></span
         ></a> -->
         <nav aria-label="Footer navigation">
-          <a href="#truckload">Truckload</a
-          ><a href="#ltl">LTL</a
+          <a href="#truckload">Truckload</a><a href="#ltl">LTL</a
           ><a href="#drayage">Drayage/Intermodal</a
-          ><a href="#why">Why choose us</a
-          ><a href="#technology">Technology</a>
+          ><a href="#why">Why choose us</a><a href="#technology">Technology</a
+          ><a href="#quote" data-scroll>Contact us</a>
         </nav>
         <!-- <p>WE NEVER CANCEL.<br />WE MAKE IT HAPPEN.</p> -->
       </footer>
