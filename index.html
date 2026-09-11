@@ -1,8 +1,576 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FOOR Logistics — Design concepts</title><style>
-*{box-sizing:border-box}body{margin:0;background:#edf4f9;color:#071c38;font:15px/1.6 Arial,Helvetica,sans-serif}main{max-width:1400px;margin:auto;padding:60px 40px}header{display:flex;align-items:start;justify-content:space-between;border-bottom:1px solid #cbdde9;padding-bottom:35px;margin-bottom:40px}.eyebrow{font-size:10px;letter-spacing:3px;color:#1279b1;font-weight:700}h1{font-size:clamp(36px,5vw,65px);line-height:1.05;letter-spacing:-2px;margin:16px 0}header p{color:#50677a;max-width:450px}.brand{font-size:25px;font-weight:900;letter-spacing:-1px}.brand small{display:block;font-size:10px;letter-spacing:2px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.card{min-width:0}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid #0797df;outline-offset:5px}.preview{display:block;height:410px;overflow:hidden;border:7px solid white;border-radius:5px;box-shadow:0 8px 30px #153e6010;background:white}.preview img{width:100%;display:block;transition:transform .6s}.preview:hover img{transform:translateY(-4%)}.number{color:#1487bd;font-size:11px;letter-spacing:2px;margin:22px 0 5px}h2{font-size:24px;letter-spacing:-.7px;margin:0 0 7px}.card p{color:#526a80;font-size:13px;margin:0 0 20px}.links{display:flex;align-items:center;justify-content:space-between;gap:10px}.open{background:#087dcc;color:white;padding:11px 16px;border-radius:3px;font-size:12px;font-weight:bold}.reference{font-size:11px;color:#355875;border-bottom:1px solid #9db3c5}footer{margin-top:60px;padding-top:22px;border-top:1px solid #cbdde9;font-size:11px;color:#526a80;display:flex;justify-content:space-between;gap:20px}@media(max-width:850px){main{padding:35px 24px}.grid{grid-template-columns:1fr;gap:38px}.preview{height:460px}.preview img{max-width:100%}header{gap:20px}.brand{display:none}footer{display:block}}@media(prefers-reduced-motion:reduce){.preview img{transition:none}}
-</style></head><body><main><header><div><span class="eyebrow">FOOR LOGISTICS / WEBSITE DIRECTIONS</span><h1>Same commitment.<br>Three perspectives.</h1><p>Three working website concepts, inspired by the original designs. Choose a direction to explore.</p></div><div class="brand">FOOR<small>LOGISTICS</small></div></header><div class="grid">
-<article class="card"><a class="preview" href="version-1/index.html" aria-label="Open Clear and Confident"><img src="output/site-previews/version-1-desktop.png" alt="Clear and Confident website preview"></a><div class="number">01 / LIGHT & EDITORIAL</div><h2>Clear & Confident</h2><p>Open space, confident navy typography and a bright blue palette. Reliability, made simple.</p><div class="links"><a class="open" href="version-1/index.html">Explore version 1 ↗</a><a class="reference" href="output/design-concepts/01-clear-confident.png">Original reference</a></div></article>
-<article class="card"><a class="preview" href="version-2/index.html" aria-label="Open Bold and Reliable"><img src="output/site-previews/version-2-desktop.png" alt="Bold and Reliable website preview"></a><div class="number">02 / BOLD & CINEMATIC</div><h2>Bold & Reliable</h2><p>Deep navy, a dramatic freight hero and numbered service rows. A stronger first impression.</p><div class="links"><a class="open" href="version-2/index.html">Explore version 2 ↗</a><a class="reference" href="output/design-concepts/02-bold-reliable.png">Original reference</a></div></article>
-<article class="card"><a class="preview" href="version-3/index.html" aria-label="Open Connected and Smart"><img src="output/site-previews/version-3-desktop.png" alt="Connected and Smart website preview"></a><div class="number">03 / CONNECTED & MODULAR</div><h2>Connected & Smart</h2><p>Route-inspired graphics, airy cards and an interactive portal preview. People and technology, together.</p><div class="links"><a class="open" href="version-3/index.html">Explore version 3 ↗</a><a class="reference" href="output/design-concepts/03-connected-smart.png">Original reference</a></div></article>
-</div><footer><span>HTML / CSS / JAVASCRIPT · Responsive layouts · No build step</span><span>Quote forms prepare a local download. Nothing is sent.</span></footer></main></body></html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>FOOR Logistics | Truckload, LTL &amp; Drayage Freight Brokerage</title>
+    <meta
+      name="description"
+      content="FOOR Logistics is a U.S. freight brokerage moving truckload, heavy haul, LTL and drayage/intermodal freight. Ten years of reliability. Request a quote."
+    />
+    <link rel="canonical" href="https://foorlogistics.com/" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="author" content="FOOR Logistics" />
+    <meta name="theme-color" content="#071c38" />
+
+    <!-- Open Graph (Facebook, LinkedIn, Slack, iMessage) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="FOOR Logistics" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://foorlogistics.com/" />
+    <meta
+      property="og:title"
+      content="FOOR Logistics | Truckload, LTL &amp; Drayage Freight Brokerage"
+    />
+    <meta
+      property="og:description"
+      content="A U.S. freight brokerage built around reliability. Truckload, heavy haul, LTL and drayage/intermodal — real people and smart technology behind every load."
+    />
+    <meta property="og:image" content="https://foorlogistics.com/assets/hero.jpg" />
+    <meta property="og:image:width" content="1536" />
+    <meta property="og:image:height" content="1024" />
+    <meta
+      property="og:image:alt"
+      content="A FOOR Logistics freight truck on the open road"
+    />
+
+    <!-- X / Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="FOOR Logistics | Truckload, LTL &amp; Drayage Freight Brokerage"
+    />
+    <meta
+      name="twitter:description"
+      content="A U.S. freight brokerage built around reliability. Truckload, heavy haul, LTL and drayage/intermodal — real people and smart technology behind every load."
+    />
+    <meta name="twitter:image" content="https://foorlogistics.com/assets/hero.jpg" />
+    <meta
+      name="twitter:image:alt"
+      content="A FOOR Logistics freight truck on the open road"
+    />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/foor-logo.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&amp;display=swap"
+    />
+    <!-- The hero background is the Largest Contentful Paint element; fetch it early. -->
+    <link
+      rel="preload"
+      as="image"
+      href="assets/hero.jpg"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="assets/vendor/libphonenumber-max.js" defer></script>
+    <script src="app.js" defer></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://foorlogistics.com/#organization",
+            "name": "FOOR Logistics",
+            "url": "https://foorlogistics.com/",
+            "slogan": "We never cancel. We make it happen.",
+            "description": "FOOR Logistics is a U.S. freight brokerage offering truckload, heavy haul and specialized, LTL, and drayage/intermodal transportation. Founded by four friends who started on the dispatch side ten years ago.",
+            "logo": {
+              "@type": "ImageObject",
+              "@id": "https://foorlogistics.com/#logo",
+              "url": "https://foorlogistics.com/assets/foor-logo.png",
+              "width": 816,
+              "height": 816,
+              "caption": "FOOR Logistics"
+            },
+            "image": { "@id": "https://foorlogistics.com/#logo" },
+            "areaServed": {
+              "@type": "Country",
+              "name": "United States"
+            },
+            "knowsAbout": [
+              "Freight brokerage",
+              "Truckload shipping",
+              "Heavy haul and oversized freight",
+              "Less than truckload (LTL) shipping",
+              "Drayage",
+              "Intermodal rail",
+              "Warehousing"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Freight services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": { "@id": "https://foorlogistics.com/#service-truckload" }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": { "@id": "https://foorlogistics.com/#service-ltl" }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": { "@id": "https://foorlogistics.com/#service-drayage" }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://foorlogistics.com/#service-truckload",
+            "name": "Truckload and Heavy Haul Freight",
+            "serviceType": "Truckload freight brokerage",
+            "url": "https://foorlogistics.com/#truckload",
+            "provider": { "@id": "https://foorlogistics.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "United States" },
+            "description": "Full truckload freight, plus heavy haul and specialized transport for machinery, construction equipment, and oversized or overweight loads. Multi-axle RGNs, lowboys and step decks, with routing, permits, pole cars, escorts and route surveys handled before the truck rolls."
+          },
+          {
+            "@type": "Service",
+            "@id": "https://foorlogistics.com/#service-ltl",
+            "name": "LTL Freight",
+            "serviceType": "Less than truckload freight brokerage",
+            "url": "https://foorlogistics.com/#ltl",
+            "provider": { "@id": "https://foorlogistics.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "United States" },
+            "description": "Less than truckload shipping with contracts across every major LTL carrier at Tier 1 pricing, active pickup follow-up, reclass and reweigh review before invoicing, and claims filed and pursued on your behalf."
+          },
+          {
+            "@type": "Service",
+            "@id": "https://foorlogistics.com/#service-drayage",
+            "name": "Drayage and Intermodal",
+            "serviceType": "Drayage and intermodal freight brokerage",
+            "url": "https://foorlogistics.com/#drayage",
+            "provider": { "@id": "https://foorlogistics.com/#organization" },
+            "areaServed": { "@type": "Country", "name": "United States" },
+            "description": "Port-to-door drayage at all major U.S. ports, intermodal rail for the long haul, and warehousing in between. Container, chassis, appointment and paperwork management included."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://foorlogistics.com/#website",
+            "url": "https://foorlogistics.com/",
+            "name": "FOOR Logistics",
+            "publisher": { "@id": "https://foorlogistics.com/#organization" },
+            "inLanguage": "en-US"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://foorlogistics.com/#webpage",
+            "url": "https://foorlogistics.com/",
+            "name": "FOOR Logistics | Truckload, LTL & Drayage Freight Brokerage",
+            "description": "FOOR Logistics is a U.S. freight brokerage moving truckload, heavy haul, LTL and drayage/intermodal freight. Ten years of reliability. Request a quote.",
+            "isPartOf": { "@id": "https://foorlogistics.com/#website" },
+            "about": { "@id": "https://foorlogistics.com/#organization" },
+            "primaryImageOfPage": { "@id": "https://foorlogistics.com/#logo" },
+            "inLanguage": "en-US"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="v1 full-copy" id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site">
+      <header class="header">
+        <a class="brand" href="#top" aria-label="FOOR Logistics home"
+          ><span class="logo-map"
+            ><img
+              src="assets/foor-logo.png"
+              width="816"
+              height="816"
+              fetchpriority="high"
+              alt="FOOR Logistics" /></span
+          ><span class="logo-wordmark" aria-hidden="true"
+            ><img
+              src="assets/foor-logo.png"
+              width="816"
+              height="816"
+              alt="" /></span></a
+        ><button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="navigation"
+          type="button"
+        >
+          Menu <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="navigation" aria-label="Main navigation">
+          <a href="#truckload">Truckload services</a
+          ><a href="#ltl">LTL services</a
+          ><a href="#drayage">Drayage/Intermodal</a
+          ><a href="#why">Why choose us</a><a href="#technology">Technology</a
+          ><a class="button" href="#quote"
+            >Request Quote</a
+          >
+        </nav>
+      </header>
+      <main id="main">
+        <section class="hero">
+          <div class="hero-content">
+            <h1 class="hero-slogan">
+              <span class="sr-only"
+                >FOOR Logistics — truckload, LTL and drayage freight brokerage
+                across the United States. We never cancel. We make it
+                happen.</span
+              ><span class="slogan-we" aria-hidden="true">WE</span>
+              <span class="slogan-lines" aria-hidden="true"
+                ><span>NEVER CANCEL</span><span>MAKE IT HAPPEN</span></span
+              >
+            </h1>
+          </div>
+        </section>
+        <section class="about section" id="about" aria-labelledby="about-title">
+          <div class="about-copy">
+            <h2 id="about-title">Who we are</h2>
+            <p>
+              Four Friends - Foor Logistics. We started on the dispatch side ten
+              years ago and grew into freight brokers. Even though a lot
+              changed, we still work the same way we did then: as one desk.
+              Everyone owns their piece of the job while being fully involved in
+              “the big picture”. Whoever you reach gives you the same answer.
+            </p>
+            <p>
+              Our core value is taking responsibility and ownership of every
+              single project we have.
+            </p>
+            <p>
+              Ten years in this business teaches you that capacity is easy to
+              find and reliability is not. That's the part we're built around.
+            </p>
+          </div>
+          <figure class="about-image">
+            <img
+              src="assets/operations.jpg"
+              width="1774"
+              height="887"
+              loading="lazy"
+              decoding="async"
+              alt="FOOR Logistics operator reviewing shipment details on a tablet at a freight warehouse"
+            />
+            <figcaption>PEOPLE KEEP FREIGHT MOVING.</figcaption>
+          </figure>
+        </section>
+        <section
+          class="services section"
+          id="services"
+          aria-labelledby="services-title"
+        >
+          <div class="section-heading">
+            <div>
+              <!-- <p class="eyebrow">What we move</p> -->
+              <h2 id="services-title">Our services</h2>
+            </div>
+            <p>
+              A single shipment or a regular lane. Let’s find the right fit for
+              your freight.
+            </p>
+          </div>
+          <div class="services-grid">
+            <article class="service-card" id="truckload">
+              <div class="service-top">
+                <svg
+                  class="stepdeck-icon"
+                  viewBox="0 0 64 32"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M3 23V12l5-7h10v18M4 13h9V8H8M3 23h3m8 0h8m-4-8h11v6h32v3H29l-5-5h-6M61 21v-4"
+                  />
+                  <circle cx="10" cy="24" r="3" />
+                  <circle cx="25" cy="24" r="3" />
+                  <circle cx="47" cy="26" r="3" />
+                  <circle cx="56" cy="26" r="3" />
+                </svg>
+              </div>
+              <h3>Truckload</h3>
+              <p>Of course! You name it.</p>
+              <h4>Heavy Haul &amp; Specialized</h4>
+              <p>
+                Machinery, construction equipment, oversized and overweight
+                freight. Multi-axle RGNs, lowboys, and step decks, with routing
+                and permits handled before the truck rolls. Pole cars, escorts,
+                and route surveys when the load requires them. We know how this
+                freight has to be secured and which drivers can actually secure
+                it. Additional insurance when the value calls for it, no
+                argument.
+              </p>
+              <a
+                class="button service-quote"
+                href="#quote"
+                data-service="Truckload"
+                >Request Quote</a
+              >
+            </article>
+            <article class="service-card" id="ltl">
+              <div class="service-top">
+                <svg
+                  viewBox="0 0 24 26"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M2 6h13v12H2zM15 10h4l3 4v4h-7M15 14h7" />
+                  <circle cx="6" cy="19" r="2" />
+                  <circle cx="18" cy="19" r="2" />
+                </svg>
+              </div>
+              <h3>LTL</h3>
+              <p>
+                We hold contracts with every major LTL carrier and quote at Tier
+                1 pricing. LTL is also where most shipments go sideways:
+                reclasses, reweighs, missed pickups, damage. So we do more than
+                tender and wait. We chase pickups until they happen, catch
+                problems before they show up on your invoice, and when a claim
+                comes up we file it and push it. Our side of the table is your
+                side.
+              </p>
+              <a class="button service-quote" href="#quote" data-service="LTL"
+                >Request Quote</a
+              >
+            </article>
+            <article class="service-card" id="drayage">
+              <div class="service-top">
+                <svg
+                  viewBox="0 0 24 26"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="5" cy="5" r="2" />
+                  <circle cx="19" cy="19" r="2" />
+                  <path
+                    d="M8 5h8a4 4 0 0 1 0 8H8a3 3 0 0 0 0 6h8M16 2l3 3-3 3"
+                  />
+                </svg>
+              </div>
+              <h3>Drayage &amp; Intermodal</h3>
+              <p>
+                Port-to-door service at all major US ports, intermodal rail for
+                the long haul, and warehousing when product needs to sit
+                somewhere in between. Container, chassis, appointment,
+                paperwork: ours to manage, not yours.
+              </p>
+              <a
+                class="button service-quote"
+                href="#quote"
+                data-service="Drayage &amp; Intermodal"
+                >Request Quote</a
+              >
+            </article>
+          </div>
+        </section>
+        <section
+          class="why-section section"
+          id="why"
+          aria-labelledby="why-title"
+        >
+          <div class="why">
+            <h2 id="why-title">Why choose us</h2>
+            <div class="why-intro">
+              <p>Because we genuinely like this work.</p>
+              <p>
+                What we're really selling is a quiet inbox. Hand us a shipment
+                and we’ll take its weight off of your shoulders. And if
+                something goes wrong on the road, you'll hear about us fixing it
+                immediately.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section
+          class="technology section"
+          id="technology"
+          aria-labelledby="technology-title"
+        >
+          <div class="tech-content">
+            <h2 id="technology-title">Technology</h2>
+            <p class="technology-intro">
+              We operate as an independent agency of Margin Freight, which puts
+              one of the strongest tech stacks in brokerage behind every load we
+              move.
+            </p>
+            <ul class="features">
+              <li class="feature">
+                <svg
+                  class="icon"
+                  viewBox="0 0 58 52"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="9" y="7" width="37" height="27" rx="2" />
+                  <path d="M5 41h45M22 34v7M33 34v7" />
+                </svg>
+                <div>
+                  <h3>Ecosystem</h3>
+                  <p>
+                    Your own portal with quotes, active shipments, documents,
+                    and invoices in one place, whenever you want to look.
+                  </p>
+                </div>
+              </li>
+              <li class="feature">
+                <svg
+                  class="icon"
+                  viewBox="0 0 58 52"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="23" cy="21" r="14" />
+                  <path d="m34 32 15 15" />
+                </svg>
+                <div>
+                  <h3>Faster Sourcing</h3>
+                  <p>
+                    Our AI tools help us check thousands of carrier options down
+                    to the right few in minutes rather than an afternoon of
+                    phone calls. No worries, Skynet won’t take your freight.
+                  </p>
+                </div>
+              </li>
+              <li class="feature">
+                <svg
+                  class="icon"
+                  viewBox="0 0 58 52"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M43 20c0 12-16 26-16 26S11 32 11 20a16 16 0 0 1 32 0Z"
+                  />
+                  <circle cx="27" cy="20" r="5" />
+                </svg>
+                <div>
+                  <h3>Full Cycle Control</h3>
+                  <p>
+                    Continuous and precise monitoring with ETAs recalculated in
+                    real time for every pickup and delivery.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <img
+            class="tech-map"
+            src="assets/network.svg"
+            width="540"
+            height="330"
+            loading="lazy"
+            decoding="async"
+            alt="Map of the FOOR Logistics freight network across the United States"
+          />
+        </section>
+        <section class="quote section" id="quote" aria-labelledby="quote-section-title">
+          <div class="quote-copy">
+            <h2 id="quote-section-title">Request Quote</h2>
+            <p>Tell us about your shipment and we'll get back to you with options as soon as possible.</p>
+          </div>
+          <button class="button quote-open" type="button" data-quote>Request Quote</button>
+        </section>
+      </main>
+      <footer>
+        <a class="brand" href="#top" aria-label="FOOR Logistics home"
+          ><span class="logo-map" aria-hidden="true"
+            ><img
+              src="assets/foor-logo.png"
+              width="816"
+              height="816"
+              alt="" /></span
+          ><span class="logo-wordmark" aria-hidden="true"
+            ><img
+              src="assets/foor-logo.png"
+              width="816"
+              height="816"
+              alt="" /></span
+        ></a>
+        <nav aria-label="Footer navigation">
+          <a href="#about">Who we are</a><a href="#services">Our services</a
+          ><a href="#why">Why choose us</a><a href="#technology">Technology</a
+          ><a class="button" href="#quote"
+            >Request Quote</a
+          >
+        </nav>
+        <p>WE NEVER CANCEL.<br />WE MAKE IT HAPPEN.</p>
+      </footer>
+    </div>
+      <dialog id="quote-dialog" aria-labelledby="quote-title">
+      <button type="button" class="dialog-close" aria-label="Close quote form">×</button>
+      <h2 id="quote-title">Tell us about your freight.</h2>
+      <form id="quote-form">
+        <div class="form-grid">
+          <label class="full"
+            >Your name<input
+              name="name"
+              autocomplete="name"
+              required
+              maxlength="100"
+              placeholder="Alex Johnson" /></label
+          ><label class="full">Phone number<input name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="30" placeholder="(201) 555-0123" /></label
+          ><label class="full"
+            >Work email<input
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              maxlength="254"
+              placeholder="alex@company.com" /></label
+          ><label class="full"
+            >Quote info<textarea
+              name="notes"
+              rows="4"
+              maxlength="2000"
+              placeholder="Pickup and delivery ZIPs, commodity, weight, pallet count, equipment, dates, or recurring schedule…"
+            ></textarea>
+          </label>
+        </div>
+        <button class="button" type="submit">Submit</button>
+      </form>
+      <div id="quote-result" hidden aria-live="polite">
+        <span class="success-icon">✓</span>
+        <h3>Your request is ready.</h3>
+        <p class="muted">
+          Download the details for your records. This preview has not sent your
+          request to a freight team.
+        </p>
+        <pre id="request-summary"></pre>
+        <button class="button" id="download-request">
+          Download request <span>↓</span></button
+        ><button class="text-link" id="edit-request">Edit details</button>
+      </div>
+    </dialog>
+  </body>
+</html>
