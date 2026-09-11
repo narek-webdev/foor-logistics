@@ -1812,11 +1812,12 @@ body.v3 {
 .full-copy .about {
   grid-template-columns: 1.15fr 1fr;
   gap: clamp(30px, 5vw, 80px);
-  padding-top: 10px;
+  padding-top: 25px;
 }
 .full-copy .about h2,
 .full-copy .technology h2 {
   font-size: clamp(30px, 3vw, 44px);
+  margin-bottom: 25px;
 }
 .full-copy .about-copy > p:not(.eyebrow) {
   max-width: 65ch;
