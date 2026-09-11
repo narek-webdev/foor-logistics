@@ -434,10 +434,59 @@ p {
   gap: 80px;
   align-items: center;
 }
+.quote-contacts {
+  min-width: 0;
+}
 .quote-copy > p:not(.eyebrow) {
   max-width: 400px;
   color: var(--muted);
   font-size: 15px;
+  width: 250px;
+}
+.contacts-title {
+  font-size: clamp(29px, 3vw, 44px);
+  line-height: 1.07;
+  letter-spacing: -1.6px;
+  font-weight: 800;
+}
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 28px;
+}
+.contact {
+  display: grid;
+  gap: 2px;
+  font-size: 14px;
+  line-height: 1.4;
+  min-width: 0;
+}
+.contact-name {
+  font-weight: 700;
+}
+.contact-name,
+.contact-phone,
+.contact-email {
+  justify-self: start;
+  max-width: 100%;
+}
+.contact-phone,
+.contact-email {
+  color: var(--blue);
+  overflow-wrap: anywhere;
+  transition: color 0.2s;
+}
+.contact-phone:hover,
+.contact-email:hover,
+.contact-phone:focus-visible,
+.contact-email:focus-visible {
+  color: var(--navy);
+}
+.quote-copy .quote-open {
+  margin-top: 8px;
 }
 .quote-copy .form-note {
   font-size: 11px;
@@ -1280,9 +1329,13 @@ footer > p {
   }
   .quote {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
-  .quote h2 {
+  .contact-list {
+    gap: 18px 20px;
+  }
+  .quote h2,
+  .contacts-title {
     font-size: 38px;
   }
   .quote-copy p {
@@ -2320,32 +2373,162 @@ body.v3 {
   --dlg-field: clamp(34px, 4.8dvh, 44px);
   --dlg-pad-field: clamp(6px, 1.2dvh, 11px);
 }
-.v1 .quote-open { justify-self: end; }
-.v1 #quote-dialog { width: min(650px, calc(100% - 32px)); max-height: 100dvh; overflow: hidden; padding: var(--dlg-pad-y) 40px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--navy); box-shadow: 0 30px 100px #00153a40; }
-.v1 #quote-dialog::backdrop { background: #081a36aa; backdrop-filter: blur(5px); }
-.v1 #quote-dialog h2 { font-size: clamp(22px, 3.7dvh, 33px); letter-spacing: -1.5px; margin-bottom: clamp(6px, 1.5dvh, 16px); }
-.v1 #quote-dialog h3 { margin-bottom: clamp(6px, 1.5dvh, 16px); }
-.v1 #quote-dialog .eyebrow { font-size: 9px; margin-bottom: clamp(6px, 1.4dvh, 15px); padding-right: 24px; }
-.v1 #quote-dialog .muted { color: var(--muted); font-size: clamp(13px, 1.7dvh, 15px); }
-.v1 #quote-dialog .dialog-close { position: absolute; right: 16px; top: 13px; display: grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 50%; background: #f3f6fb; color: var(--navy); font-size: 24px; line-height: 1; }
-.v1 #quote-dialog .dialog-close:hover { background: #dcecf7; }
-body.v1:has(#quote-dialog[open]) { overflow: hidden; }
-.v1 #quote-dialog .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--dlg-gap); margin-top: clamp(10px, 2.4dvh, 25px); }
-.v1 #quote-dialog label { display: flex; flex-direction: column; min-width: 0; gap: clamp(2px, 0.6dvh, 6px); font-size: 12px; font-weight: 600; }
-.v1 #quote-dialog input, .v1 #quote-dialog select, .v1 #quote-dialog textarea { width: 100%; min-width: 0; min-height: var(--dlg-field); margin: 0; padding: var(--dlg-pad-field); border: 1px solid var(--line); border-radius: 4px; background: #f3f6fb; color: var(--navy); font: inherit; font-size: 14px; font-weight: 400; }
-.v1 #quote-dialog input:focus, .v1 #quote-dialog select:focus, .v1 #quote-dialog textarea:focus { border-color: var(--blue); outline: 2px solid #087dcc40; outline-offset: 1px; background: #fff; }
-.v1 #quote-dialog textarea { resize: none; height: calc(var(--dlg-field) * 2.4); }
-.v1 #quote-dialog .full { grid-column: 1 / -1; }
-.v1 #quote-form > .button { width: 100%; margin-top: clamp(12px, 2.2dvh, 22px); font-size: 16px; letter-spacing: 0.02em; }
-.v1 #quote-dialog .success-icon { display: inline-grid; place-items: center; width: 40px; height: 40px; margin: clamp(10px, 2.4dvh, 25px) 0 clamp(8px, 1.5dvh, 15px); border-radius: 50%; background: #d8edff; color: var(--blue); }
-.v1 #request-summary { white-space: pre-wrap; overflow-wrap: anywhere; font-family: inherit; font-size: clamp(11px, 1.4dvh, 12px); line-height: clamp(1.35, 2dvh, 1.8); padding: clamp(10px, 2dvh, 20px); border-radius: 5px; background: #f3f6fb; }
-.v1 #edit-request { margin-left: 20px; padding: 12px 0; border: 0; background: transparent; color: var(--blue); font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
-@media (max-width: 760px) { .v1 .quote-open { justify-self: start; } }
+.v1 #quote-dialog {
+  width: min(650px, calc(100% - 32px));
+  max-height: 100dvh;
+  overflow: hidden;
+  padding: var(--dlg-pad-y) 40px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--navy);
+  box-shadow: 0 30px 100px #00153a40;
+}
+.v1 #quote-dialog::backdrop {
+  background: #081a36aa;
+  backdrop-filter: blur(5px);
+}
+.v1 #quote-dialog h2 {
+  font-size: clamp(22px, 3.7dvh, 33px);
+  letter-spacing: -1.5px;
+  margin-bottom: clamp(6px, 1.5dvh, 16px);
+}
+.v1 #quote-dialog h3 {
+  margin-bottom: clamp(6px, 1.5dvh, 16px);
+}
+.v1 #quote-dialog .eyebrow {
+  font-size: 9px;
+  margin-bottom: clamp(6px, 1.4dvh, 15px);
+  padding-right: 24px;
+}
+.v1 #quote-dialog .muted {
+  color: var(--muted);
+  font-size: clamp(13px, 1.7dvh, 15px);
+}
+.v1 #quote-dialog .dialog-close {
+  position: absolute;
+  right: 16px;
+  top: 13px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #f3f6fb;
+  color: var(--navy);
+  font-size: 24px;
+  line-height: 1;
+}
+.v1 #quote-dialog .dialog-close:hover {
+  background: #dcecf7;
+}
+body.v1:has(#quote-dialog[open]) {
+  overflow: hidden;
+}
+.v1 #quote-dialog .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--dlg-gap);
+  margin-top: clamp(10px, 2.4dvh, 25px);
+}
+.v1 #quote-dialog label {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: clamp(2px, 0.6dvh, 6px);
+  font-size: 12px;
+  font-weight: 600;
+}
+.v1 #quote-dialog input,
+.v1 #quote-dialog select,
+.v1 #quote-dialog textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--dlg-field);
+  margin: 0;
+  padding: var(--dlg-pad-field);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #f3f6fb;
+  color: var(--navy);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+.v1 #quote-dialog input:focus,
+.v1 #quote-dialog select:focus,
+.v1 #quote-dialog textarea:focus {
+  border-color: var(--blue);
+  outline: 2px solid #087dcc40;
+  outline-offset: 1px;
+  background: #fff;
+}
+.v1 #quote-dialog textarea {
+  resize: none;
+  height: calc(var(--dlg-field) * 2.4);
+}
+.v1 #quote-dialog .full {
+  grid-column: 1 / -1;
+}
+.v1 #quote-form > .button {
+  width: 100%;
+  margin-top: clamp(12px, 2.2dvh, 22px);
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+.v1 #quote-dialog .success-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: clamp(10px, 2.4dvh, 25px) 0 clamp(8px, 1.5dvh, 15px);
+  border-radius: 50%;
+  background: #d8edff;
+  color: var(--blue);
+}
+.v1 #request-summary {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: inherit;
+  font-size: clamp(11px, 1.4dvh, 12px);
+  line-height: clamp(1.35, 2dvh, 1.8);
+  padding: clamp(10px, 2dvh, 20px);
+  border-radius: 5px;
+  background: #f3f6fb;
+}
+.v1 #edit-request {
+  margin-left: 20px;
+  padding: 12px 0;
+  border: 0;
+  background: transparent;
+  color: var(--blue);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 @media (max-width: 540px) {
-  .v1 #quote-dialog { padding: var(--dlg-pad-y) 18px; }
-  .v1 #quote-dialog h2 { font-size: clamp(21px, 3.4dvh, 28px); }
-  .v1 #quote-dialog input, .v1 #quote-dialog select, .v1 #quote-dialog textarea { font-size: 16px; }
-  .v1 #quote-dialog .dialog-close { right: 10px; top: 10px; }
-  .v1 #download-request { width: 100%; }
-  .v1 #edit-request { display: block; margin: 12px auto 0; }
+  .v1 #quote-dialog {
+    padding: var(--dlg-pad-y) 18px;
+  }
+  .v1 #quote-dialog h2 {
+    font-size: clamp(21px, 3.4dvh, 28px);
+  }
+  .v1 #quote-dialog input,
+  .v1 #quote-dialog select,
+  .v1 #quote-dialog textarea {
+    font-size: 16px;
+  }
+  .v1 #quote-dialog .dialog-close {
+    right: 10px;
+    top: 10px;
+  }
+  .v1 #download-request {
+    width: 100%;
+  }
+  .v1 #edit-request {
+    display: block;
+    margin: 12px auto 0;
+  }
 }
