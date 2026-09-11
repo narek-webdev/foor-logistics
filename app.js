@@ -51,7 +51,8 @@ function openQuote(trigger) {
   quoteDialog.scrollTop = 0;
   form.elements.name.focus({ preventScroll: true });
 }
-document.querySelectorAll('a[href="#quote"], [data-quote]').forEach(trigger => {
+// Links marked data-scroll jump to the quote section instead of opening the dialog.
+document.querySelectorAll('a[href="#quote"]:not([data-scroll]), [data-quote]').forEach(trigger => {
   trigger.setAttribute('aria-haspopup', 'dialog');
   trigger.setAttribute('aria-controls', 'quote-dialog');
   trigger.addEventListener('click', event => {
