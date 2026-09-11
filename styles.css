@@ -489,7 +489,7 @@ footer {
   padding: 30px var(--pad);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 30px;
 }
 footer .brand {
@@ -498,19 +498,8 @@ footer .brand {
   margin-right: -30px;
 }
 footer nav {
-  gap: 25px;
-  font-size: 11px;
-}
-footer nav .button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  min-height: 32px;
-  font-size: 11px;
-}
-footer nav .button span {
-  display: none;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 footer > p {
   font-size: 8px;
@@ -1314,11 +1303,8 @@ footer > p {
   footer nav {
     width: 100%;
     gap: 22px;
-    font-size: 10px;
     flex-wrap: wrap;
-  }
-  footer nav .button {
-    font-size: 10px;
+    justify-content: center;
   }
   footer .brand {
     transform: scale(0.9);
@@ -1560,28 +1546,6 @@ footer > p {
   transform: none;
   margin-right: 0;
 }
-.v1.full-copy footer nav {
-  font-family: "Trebuchet MS", "Avenir Next", sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-.v1.full-copy footer nav a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 8px 4px;
-  color: var(--blue);
-  font-size: 14px;
-  text-decoration: underline;
-  text-underline-offset: 5px;
-}
-.v1.full-copy footer nav a:hover,
-.v1.full-copy footer nav a:focus-visible {
-  color: var(--navy);
-  text-decoration-thickness: 2px;
-}
 .v1.full-copy .why-section .why {
   grid-template-columns: 1fr;
   gap: 24px;
@@ -1651,12 +1615,14 @@ footer > p {
 .v1 h6 {
   font-family: "Trebuchet MS", "Avenir Next", sans-serif;
 }
-.v1.full-copy .header nav {
+.v1.full-copy .header nav,
+.v1.full-copy footer nav {
   font-size: 14px;
   font-weight: 700;
   gap: 16px;
 }
-.v1.full-copy .header nav a:not(.button) {
+.v1.full-copy .header nav a:not(.button),
+.v1.full-copy footer nav a:not(.button) {
   display: flex;
   align-items: center;
   min-height: 48px;
@@ -1672,7 +1638,9 @@ footer > p {
     background 0.2s;
 }
 .v1.full-copy .header nav a:not(.button):hover,
-.v1.full-copy .header nav a:not(.button):focus-visible {
+.v1.full-copy .header nav a:not(.button):focus-visible,
+.v1.full-copy footer nav a:not(.button):hover,
+.v1.full-copy footer nav a:not(.button):focus-visible {
   background: var(--ice);
   color: var(--navy);
   text-decoration-thickness: 2px;
@@ -1720,13 +1688,6 @@ footer > p {
   .v1.full-copy .header nav .button {
     margin-top: 10px;
   }
-}
-
-/* Keep footer navigation quiet in every palette. */
-.v2 footer nav .button,
-.v3 footer nav .button {
-  background: transparent;
-  color: inherit;
 }
 
 /* Edge-to-edge site canvas, including large desktop screens. */
@@ -2042,8 +2003,8 @@ body.v3 {
   font-size: 12px;
 }
 .full-copy footer nav {
-  gap: 18px;
-  flex-wrap: wrap;
+  gap: clamp(14px, 1.7vw, 30px);
+  font-size: 12px;
 }
 .full-copy .service-detail {
   display: grid;
