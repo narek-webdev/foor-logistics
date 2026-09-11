@@ -1,0 +1,58 @@
+/* Brand/content adaptation only. Original theme layouts, typography, and colors remain in their existing stylesheets. */
+.foor-site .logo{flex-shrink:0;gap:7px}
+.foor-site .logo svg{width:64px;height:43px;color:#269ed7;flex-shrink:0}
+.foor-site .logo b{font-family:Arial,Helvetica,sans-serif;font-weight:900;font-size:32px;letter-spacing:-1px;line-height:.9;display:block}
+.foor-site .logo small{font-family:Arial,Helvetica,sans-serif;font-size:12px;letter-spacing:1px;margin-top:5px;line-height:1;font-weight:800}
+.foor-site #hero-title{overflow-wrap:normal}
+.foor-site .hero-visual>img{object-position:72% center}
+.foor-site .foor-about-copy>p:not(.eyebrow){margin-top:22px;color:var(--muted);font-size:15px;line-height:1.85;max-width:70ch}
+.foor-site .service-card>p{font-size:14px;line-height:1.85;min-height:0}
+.foor-site .service-card h3{overflow-wrap:anywhere}
+.foor-specialized{border-top:1px solid var(--border);margin-top:30px;padding-top:30px}
+.foor-specialized h3{margin-bottom:18px}
+.foor-specialized>p:not(.eyebrow){max-width:95ch;color:var(--muted);line-height:1.85;margin-bottom:22px}
+.foor-why .process-steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+.foor-why .process-steps p,.foor-why-columns p,.foor-why.journal-statement>div p{font-size:15px;line-height:1.85;color:var(--muted);margin-top:18px}
+.foor-why-columns{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+.foor-technology .coverage-grid{align-items:center}
+.foor-tech-intro{font-size:15px;line-height:1.85;color:var(--muted);margin:24px 0}
+.foor-technology .value-row p{font-size:14px;line-height:1.8}
+.foor-technology .value-row h3{font-size:20px}
+.foor-tech-media{min-width:0}
+.foor-tech-media .map-panel{padding:24px}
+.foor-tech-media .map-panel>img{width:100%;height:auto}
+.foor-tech-photo{width:100%;aspect-ratio:2/1;object-position:center 60%;border-radius:inherit;margin-top:24px}
+.foor-operations{width:100%;margin-bottom:24px}
+body.foor-site[data-theme="4"] .journal-hero h1{font-size:clamp(70px,12vw,172px);max-width:100%;line-height:.9}
+body.foor-site[data-theme="4"] .journal-intro{position:static;width:100%;display:flex;justify-content:space-between;gap:24px;padding-top:28px}
+body.foor-site[data-theme="4"] .journal-hero h1 em{color:inherit}
+body.foor-site[data-theme="5"] .dispatch-title h1{font-size:clamp(48px,6vw,85px)}
+body.foor-site[data-theme="6"] .site-header .logo svg{width:64px;height:43px}
+body.foor-site[data-theme="6"] .site-header .logo b{font-size:24px}
+body.foor-site[data-theme="6"] .site-header .logo small{font-size:9px;display:block}
+body.foor-site[data-theme="6"] .haul-title h1{font-size:clamp(72px,9vw,145px)}
+body.foor-site[data-theme="6"] .foor-about-copy>p:not(.eyebrow){grid-column:1/-1}
+body.foor-site[data-theme="6"] .foor-technology .value-row{display:flex}
+body.foor-site[data-theme="7"] .terminal-hero h1{font-size:clamp(60px,9vw,130px);letter-spacing:-4px}
+body.foor-site[data-theme="8"] .aurora-hero h1{max-width:20ch}
+@media(max-width:1000px){
+ .foor-site .main-nav{gap:16px;font-size:12px}
+ .foor-technology .coverage-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+ .foor-site .logo svg,body.foor-site[data-theme="6"] .site-header .logo svg{width:52px;height:36px}
+ .foor-site .logo b{font-size:27px}
+ .foor-site .logo small{font-size:10px}
+ .foor-site #hero-title{font-size:clamp(37px,10vw,60px);letter-spacing:-1.8px;line-height:1.05}
+ body.foor-site[data-theme="4"] .journal-hero h1,body.foor-site[data-theme="6"] .haul-title h1,body.foor-site[data-theme="7"] .terminal-hero h1,body.foor-site[data-theme="5"] .dispatch-title h1{font-size:clamp(40px,11vw,70px);letter-spacing:-1px}
+ .foor-site .foor-about-copy>p:not(.eyebrow),.foor-site .service-card>p{font-size:14px;line-height:1.8}
+ .foor-why .process-steps,.foor-why-columns{grid-template-columns:1fr;gap:22px}
+ .foor-tech-media .map-panel{padding:16px}
+ .foor-site .foor-technology h2{font-size:36px;overflow-wrap:anywhere}
+ .foor-site .foor-technology .value-row{gap:14px}
+}
+/* Keep supplied photography visible in the technical theme as well. */
+body.foor-site[data-theme="9"] .foor-operations,
+body.foor-site[data-theme="9"] .foor-tech-media img{display:block}
+body.foor-site[data-theme="4"] .foor-specialized{grid-column:2}
+.foor-site .about-image img{object-position:65% center}
