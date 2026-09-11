@@ -1210,6 +1210,13 @@ footer > p {
     min-height: 670px;
     align-items: flex-start;
   }
+  /* Version 1's hero has only the slogan, so close the gap above the truck. */
+  .v1 .hero {
+    min-height: 0;
+  }
+  .v1 .hero-content {
+    padding-bottom: 430px;
+  }
   .hero-content,
   .v2 .hero-content {
     width: 100%;
