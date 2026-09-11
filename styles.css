@@ -1829,6 +1829,7 @@ body.v3 {
 }
 .full-copy .about-image {
   min-height: 360px;
+  margin-top: 40px;
 }
 .full-copy .service-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
