@@ -28,6 +28,9 @@ const result = document.querySelector('#quote-result');
 const phone = form.elements.phone;
 let dialogOpener = null;
 let requestText = '';
+let sendingQuote = false;
+const quoteError = document.querySelector('#quote-error');
+const submitQuote = form.querySelector('[type=submit]');
 // Service buttons no longer map to a field; the choice is carried into the summary.
 let selectedService = '';
 function parseUSPhone(value) {
@@ -74,24 +77,54 @@ quoteDialog.addEventListener('close', () => {
 form.addEventListener('input', event => {
   if (typeof event.target.setCustomValidity === 'function') event.target.setCustomValidity('');
 });
-form.addEventListener('submit', event => {
+form.addEventListener('submit', async event => {
   event.preventDefault();
+  if (sendingQuote) return;
+  quoteError.hidden = true;
   const parsedPhone = parseUSPhone(phone.value);
   phone.setCustomValidity(parsedPhone ? '' : 'Enter a valid U.S. phone number, including its area code.');
   form.elements.name.setCustomValidity(form.elements.name.value.trim() ? '' : 'Please enter your name.');
   if (!form.reportValidity()) return;
   const data = Object.fromEntries(new FormData(form));
   const service = selectedService ? `Service: ${selectedService}\n` : '';
-  requestText = `FOOR LOGISTICS — FREIGHT QUOTE REQUEST\nDesign preview · Not submitted or booked\n\nName: ${data.name.trim()}\nPhone: ${parsedPhone.number}\nEmail: ${data.email.trim()}\n${service}\nQuote info:\n${data.notes.trim() || 'None provided'}\n`;
-  document.querySelector('#request-summary').textContent = requestText;
-  form.hidden = true;
-  result.hidden = false;
-  quoteDialog.scrollTop = 0;
-  document.querySelector('#download-request').focus({ preventScroll: true });
+  sendingQuote = true;
+  submitQuote.disabled = true;
+  submitQuote.textContent = 'Sending…';
+  form.setAttribute('aria-busy', 'true');
+  try {
+    const response = await fetch('/api/quote', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...data, phone: parsedPhone.number, service: selectedService }),
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok || payload.ok !== true) {
+      throw new Error(payload.error || 'We could not confirm your request was sent. Please try again or contact our team by email.');
+    }
+    requestText = `FOOR LOGISTICS — FREIGHT QUOTE REQUEST\nSubmitted · Not a confirmed booking\n\nName: ${data.name.trim()}\nPhone: ${parsedPhone.number}\nEmail: ${data.email.trim()}\n${service}\nQuote info:\n${data.notes.trim() || 'None provided'}\n`;
+    document.querySelector('#request-summary').textContent = requestText;
+    form.reset();
+    form.hidden = true;
+    result.hidden = false;
+    quoteDialog.scrollTop = 0;
+    if (quoteDialog.open) document.querySelector('#download-request').focus({ preventScroll: true });
+  } catch (error) {
+    quoteError.textContent = error instanceof TypeError
+      ? 'We could not confirm your request was sent. Please check your connection or contact our team by email.'
+      : error.message;
+    quoteError.hidden = false;
+  } finally {
+    sendingQuote = false;
+    submitQuote.disabled = false;
+    submitQuote.textContent = 'Submit';
+    form.removeAttribute('aria-busy');
+  }
 });
 document.querySelector('#edit-request').addEventListener('click', () => {
   result.hidden = true;
   form.hidden = false;
+  selectedService = '';
+  quoteError.hidden = true;
   form.elements.name.focus();
 });
 document.querySelector('#download-request').addEventListener('click', () => {

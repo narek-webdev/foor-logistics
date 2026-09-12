@@ -1,0 +1,10 @@
+{
+  "name": "foor-logistics",
+  "private": true,
+  "engines": {
+    "node": "24.x"
+  },
+  "dependencies": {
+    "nodemailer": "10.0.9"
+  }
+}

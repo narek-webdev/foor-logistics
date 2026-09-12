@@ -589,6 +589,9 @@
       </button>
       <h2 id="quote-title">Tell us about your freight.</h2>
       <form id="quote-form">
+        <div hidden aria-hidden="true">
+          <label>Website<input name="website" tabindex="-1" autocomplete="off" /></label>
+        </div>
         <div class="form-grid">
           <label class="full"
             >Your name<input
@@ -623,19 +626,20 @@
             ></textarea>
           </label>
         </div>
+        <p id="quote-error" role="alert" hidden></p>
         <button class="button" type="submit">Submit</button>
       </form>
       <div id="quote-result" hidden aria-live="polite">
         <span class="success-icon">✓</span>
-        <h3>Your request is ready.</h3>
+        <h3>Your request has been submitted.</h3>
         <p class="muted">
-          Download the details for your records. This preview has not sent your
-          request to a freight team.
+          Our team will review your freight details and contact you.
+          You can download a copy for your records.
         </p>
         <pre id="request-summary"></pre>
         <button class="button" id="download-request">
           Download request <span>↓</span></button
-        ><button class="text-link" id="edit-request">Edit details</button>
+        ><button class="text-link" id="edit-request">New request</button>
       </div>
     </dialog>
   </body>
