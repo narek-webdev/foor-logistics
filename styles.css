@@ -1666,6 +1666,16 @@ footer > p {
   flex-direction: column;
   gap: 0.12em;
 }
+@media (max-width: 760px) {
+  .v1 .hero-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .v1 .hero-slogan {
+    font-size: clamp(20px, 6vw, 36px);
+    gap: 0.3em;
+  }
+}
 .v1 .header,
 .v1 h1,
 .v1 h2,
