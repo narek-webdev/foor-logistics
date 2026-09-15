@@ -36,7 +36,7 @@ QUOTE_ORIGIN=http://localhost:3000
 | --- | --- |
 | `SMTP_USER` | The existing Google Workspace mailbox used to send notifications |
 | `SMTP_APP_PASSWORD` | A Google app password generated for that same mailbox, not its normal login password |
-| `QUOTE_TO` | One inbox that should receive quote requests; it can be the sending mailbox |
+| `QUOTE_TO` | One or more receiving inboxes, separated by commas, e.g. `sam@foorlogistics.com,ash@foorlogistics.com`; can include the sending mailbox |
 | `QUOTE_ORIGIN` | The exact address serving the website, with no trailing slash or page path |
 
 To create an app password, sign into the sending mailbox, enable **2-Step

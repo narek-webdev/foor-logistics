@@ -13,10 +13,11 @@ module.exports = async function handler(req, res) {
   }
 
   const { SMTP_USER, SMTP_APP_PASSWORD, QUOTE_TO, QUOTE_ORIGIN } = process.env;
+  const recipients = (QUOTE_TO || "").split(",").map((address) => address.trim());
   if (
     !isEmail(SMTP_USER) ||
     !SMTP_APP_PASSWORD ||
-    !isEmail(QUOTE_TO) ||
+    !recipients.every(isEmail) ||
     !QUOTE_ORIGIN
   ) {
     return fail(
@@ -76,7 +77,7 @@ module.exports = async function handler(req, res) {
   try {
     const sent = await transport.sendMail({
       from: { name: "FOOR Logistics", address: SMTP_USER },
-      to: QUOTE_TO,
+      to: [...new Set(recipients)],
       replyTo: { name, address: email },
       subject: "New freight quote request",
       text: `FOOR LOGISTICS — FREIGHT QUOTE REQUEST\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n${service ? `Service: ${service}\n` : ""}\nQuote info:\n${notes || "None provided"}\n`,
