@@ -11,6 +11,7 @@ module.exports = async function handler(req, res) {
     res.setHeader("Allow", "POST");
     return fail(405, "Use POST to submit a quote.");
   }
+
   const { SMTP_USER, SMTP_APP_PASSWORD, QUOTE_TO, QUOTE_ORIGIN } = process.env;
   if (
     !isEmail(SMTP_USER) ||
@@ -60,15 +61,8 @@ module.exports = async function handler(req, res) {
     Object.keys(limits).map((key) => [key, data[key].trim()]),
   );
   const phone = typeof data.phone === "string" ? data.phone : "";
-  if (
-    !name ||
-    /[\r\n\x00]/.test(name + service) ||
-    !isEmail(email)
-  ) {
-    return fail(
-      400,
-      "Enter your name and a valid email.",
-    );
+  if (!name || /[\r\n\x00]/.test(name + service) || !isEmail(email)) {
+    return fail(400, "Enter your name and a valid email.");
   }
   const transport = nodemailer.createTransport({
     host: "smtp.gmail.com",
