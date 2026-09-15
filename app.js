@@ -25,29 +25,19 @@ window.matchMedia('(min-width: 1361px)').addEventListener('change', event => {
 const quoteDialog = document.querySelector('#quote-dialog');
 const form = document.querySelector('#quote-form');
 const result = document.querySelector('#quote-result');
-const phone = form.elements.phone;
+const quoteTitle = document.querySelector('#quote-title');
 let dialogOpener = null;
-let requestText = '';
 let sendingQuote = false;
 const quoteError = document.querySelector('#quote-error');
 const submitQuote = form.querySelector('[type=submit]');
-// Service buttons no longer map to a field; the choice is carried into the summary.
+// Carry the selected service into the email.
 let selectedService = '';
-function parseUSPhone(value) {
-  const input = value.trim();
-  if (!/^\+?[\d\s().-]+$/.test(input)) return null;
-  const parsed = libphonenumber.parsePhoneNumberFromString(input, { defaultCountry: 'US', extract: false });
-  return parsed && parsed.country === 'US' && parsed.isValid() ? parsed : null;
-}
-phone.addEventListener('blur', () => {
-  const parsed = parseUSPhone(phone.value);
-  phone.setCustomValidity(parsed || !phone.value ? '' : 'Enter a valid U.S. phone number, including its area code.');
-  if (parsed) phone.value = parsed.formatNational();
-});
 function openQuote(trigger) {
   dialogOpener = trigger;
   closeMenu();
   selectedService = trigger.dataset.service || '';
+  quoteTitle.hidden = false;
+  quoteDialog.setAttribute('aria-labelledby', 'quote-title');
   form.hidden = false;
   result.hidden = true;
   if (!quoteDialog.open) quoteDialog.showModal();
@@ -81,12 +71,9 @@ form.addEventListener('submit', async event => {
   event.preventDefault();
   if (sendingQuote) return;
   quoteError.hidden = true;
-  const parsedPhone = parseUSPhone(phone.value);
-  phone.setCustomValidity(parsedPhone ? '' : 'Enter a valid U.S. phone number, including its area code.');
   form.elements.name.setCustomValidity(form.elements.name.value.trim() ? '' : 'Please enter your name.');
   if (!form.reportValidity()) return;
   const data = Object.fromEntries(new FormData(form));
-  const service = selectedService ? `Service: ${selectedService}\n` : '';
   sendingQuote = true;
   submitQuote.disabled = true;
   submitQuote.textContent = 'Sending…';
@@ -95,19 +82,19 @@ form.addEventListener('submit', async event => {
     const response = await fetch('/api/quote', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...data, phone: parsedPhone.number, service: selectedService }),
+      body: JSON.stringify({ ...data, service: selectedService }),
     });
     const payload = await response.json().catch(() => ({}));
     if (!response.ok || payload.ok !== true) {
       throw new Error(payload.error || 'We could not confirm your request was sent. Please try again or contact our team by email.');
     }
-    requestText = `FOOR LOGISTICS — FREIGHT QUOTE REQUEST\nSubmitted · Not a confirmed booking\n\nName: ${data.name.trim()}\nPhone: ${parsedPhone.number}\nEmail: ${data.email.trim()}\n${service}\nQuote info:\n${data.notes.trim() || 'None provided'}\n`;
-    document.querySelector('#request-summary').textContent = requestText;
     form.reset();
+    quoteTitle.hidden = true;
+    quoteDialog.setAttribute('aria-labelledby', 'quote-success-title');
     form.hidden = true;
     result.hidden = false;
     quoteDialog.scrollTop = 0;
-    if (quoteDialog.open) document.querySelector('#download-request').focus({ preventScroll: true });
+    if (quoteDialog.open) document.querySelector('#quote-success-title').focus({ preventScroll: true });
   } catch (error) {
     quoteError.textContent = error instanceof TypeError
       ? 'We could not confirm your request was sent. Please check your connection or contact our team by email.'
@@ -122,20 +109,12 @@ form.addEventListener('submit', async event => {
 });
 document.querySelector('#edit-request').addEventListener('click', () => {
   result.hidden = true;
+  quoteTitle.hidden = false;
+  quoteDialog.setAttribute('aria-labelledby', 'quote-title');
   form.hidden = false;
   selectedService = '';
   quoteError.hidden = true;
   form.elements.name.focus();
-});
-document.querySelector('#download-request').addEventListener('click', () => {
-  const url = URL.createObjectURL(new Blob([requestText], { type: 'text/plain;charset=utf-8' }));
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'foor-freight-request.txt';
-  document.body.append(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 const preview = document.querySelector('.dashboard-view');
 if (preview) {

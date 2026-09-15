@@ -80,7 +80,6 @@
       fetchpriority="high"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="assets/vendor/libphonenumber-max.js" defer></script>
     <script src="app.js" defer></script>
 
     <script type="application/ld+json">
@@ -606,8 +605,6 @@
               type="tel"
               inputmode="tel"
               autocomplete="tel"
-              required
-              maxlength="30"
               placeholder="(201) 555-0123" /></label
           ><label class="full"
             >Work email<input
@@ -631,15 +628,11 @@
       </form>
       <div id="quote-result" hidden aria-live="polite">
         <span class="success-icon">✓</span>
-        <h3>Your request has been submitted.</h3>
+        <h3 id="quote-success-title" tabindex="-1">Your request has been submitted.</h3>
         <p class="muted">
           Our team will review your freight details and contact you.
-          You can download a copy for your records.
         </p>
-        <pre id="request-summary"></pre>
-        <button class="button" id="download-request">
-          Download request <span>↓</span></button
-        ><button class="text-link" id="edit-request">New request</button>
+        <button class="text-link" id="edit-request">New request</button>
       </div>
     </dialog>
   </body>

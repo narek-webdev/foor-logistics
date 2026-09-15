@@ -1,8 +1,4 @@
 const nodemailer = require("nodemailer");
-const {
-  parsePhoneNumberFromString,
-} = require("../assets/vendor/libphonenumber-max.js");
-
 const isEmail = (value) =>
   typeof value === "string" &&
   value.length <= 254 &&
@@ -52,7 +48,6 @@ module.exports = async function handler(req, res) {
   if (data.website) return fail(400, "Unable to submit this request.");
   const limits = {
     name: 100,
-    phone: 30,
     email: 254,
     notes: 2000,
     service: 100,
@@ -61,26 +56,18 @@ module.exports = async function handler(req, res) {
     if (typeof data[field] !== "string" || data[field].length > limit)
       return fail(400, "Please check your quote details.");
   }
-  const { name, phone, email, notes, service } = Object.fromEntries(
+  const { name, email, notes, service } = Object.fromEntries(
     Object.keys(limits).map((key) => [key, data[key].trim()]),
   );
-  const parsed = /^\+?[\d\s().-]+$/.test(phone)
-    ? parsePhoneNumberFromString(phone, {
-        defaultCountry: "US",
-        extract: false,
-      })
-    : null;
+  const phone = typeof data.phone === "string" ? data.phone : "";
   if (
     !name ||
     /[\r\n\x00]/.test(name + service) ||
-    !isEmail(email) ||
-    !parsed ||
-    parsed.country !== "US" ||
-    !parsed.isValid()
+    !isEmail(email)
   ) {
     return fail(
       400,
-      "Enter your name, a valid email, and a valid U.S. phone number.",
+      "Enter your name and a valid email.",
     );
   }
   const transport = nodemailer.createTransport({
@@ -98,7 +85,7 @@ module.exports = async function handler(req, res) {
       to: QUOTE_TO,
       replyTo: { name, address: email },
       subject: "New freight quote request",
-      text: `FOOR LOGISTICS — FREIGHT QUOTE REQUEST\n\nName: ${name}\nPhone: ${parsed.number}\nEmail: ${email}\nService: ${service || "Not specified"}\n\nQuote info:\n${notes || "None provided"}\n`,
+      text: `FOOR LOGISTICS — FREIGHT QUOTE REQUEST\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n${service ? `Service: ${service}\n` : ""}\nQuote info:\n${notes || "None provided"}\n`,
       disableFileAccess: true,
       disableUrlAccess: true,
     });

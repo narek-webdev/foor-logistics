@@ -101,14 +101,13 @@ password, update Vercel, and redeploy.
 
 ## How quote emails work
 
-1. The customer enters their name, U.S. phone number, email, and freight details.
+1. The customer enters their name, optional phone number, email, and freight details.
 2. The browser sends the details to `/api/quote` on the same website.
 3. The Node.js function validates the submission and uses Nodemailer to connect
    to `smtp.gmail.com` on port `465` with TLS.
 4. Google sends the notification from `SMTP_USER` to `QUOTE_TO`. The customer's
    email is set as **Reply-To**, so the team can reply directly to the customer.
-5. After Google accepts the message, the website displays confirmation and lets
-   the customer download a text copy. If sending fails, the form retains the
+5. After Google accepts the message, the website displays confirmation. If sending fails, the form retains the
    details and displays an error.
 
 This sends a notification to the team, not an automatic customer email or a
@@ -130,6 +129,6 @@ by a retry can produce a duplicate email.
 - `api/quote.js` — server-side Google Workspace SMTP email function.
 - `.env.example` — environment-variable template without real credentials.
 - `vercel.json` — function configuration.
-- `assets/` — images, icons, and bundled U.S. phone-number validation library.
+- `assets/` — images and icons.
 - `AGENTS.md` — repository instructions, including the owner's preference not
   to retain QA or automated test files.

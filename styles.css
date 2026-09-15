@@ -2498,18 +2498,7 @@ body.v1:has(#quote-dialog[open]) {
   background: #d8edff;
   color: var(--blue);
 }
-.v1 #request-summary {
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
-  font-family: inherit;
-  font-size: clamp(11px, 1.4dvh, 12px);
-  line-height: clamp(1.35, 2dvh, 1.8);
-  padding: clamp(10px, 2dvh, 20px);
-  border-radius: 5px;
-  background: #f3f6fb;
-}
 .v1 #edit-request {
-  margin-left: 20px;
   padding: 12px 0;
   border: 0;
   background: transparent;
@@ -2533,9 +2522,6 @@ body.v1:has(#quote-dialog[open]) {
   .v1 #quote-dialog .dialog-close {
     right: 10px;
     top: 10px;
-  }
-  .v1 #download-request {
-    width: 100%;
   }
   .v1 #edit-request {
     display: block;
