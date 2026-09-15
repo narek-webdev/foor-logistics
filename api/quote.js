@@ -102,6 +102,7 @@ module.exports = async function handler(req, res) {
       disableFileAccess: true,
       disableUrlAccess: true,
     });
+
     if (!sent.accepted?.length) throw new Error("No accepted recipient");
     return res.status(200).json({ ok: true });
   } catch {
